@@ -43,36 +43,36 @@ const browsers = [
 
 export function TrafficAnalytics() {
   return (
-    <div className="p-4 lg:p-8 space-y-6">
+    <div className="p-4 sm:p-6 lg:p-8 space-y-4 sm:space-y-6 pb-8">
       {/* Header */}
-      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 sm:gap-4">
         <div>
-          <h1 className="text-2xl lg:text-3xl font-semibold text-gray-900">Website Traffic Analytics</h1>
-          <p className="mt-1 text-sm text-gray-500">Detailed traffic patterns and visitor sources</p>
+          <h1 className="text-xl sm:text-2xl lg:text-3xl font-semibold text-gray-900">Website Traffic Analytics</h1>
+          <p className="mt-1 text-xs sm:text-sm text-gray-500">Detailed traffic patterns and visitor sources</p>
         </div>
         <div className="flex items-center gap-2">
-          <button className="px-4 py-2 bg-white border border-gray-300 rounded-lg text-sm hover:bg-gray-50 transition-colors">
+          <button className="w-full sm:w-auto px-3 sm:px-4 py-2.5 sm:py-2 bg-white border border-gray-300 rounded-lg text-xs sm:text-sm hover:bg-gray-50 active:bg-gray-100 transition-colors">
             Export Data
           </button>
         </div>
       </div>
 
       {/* Hourly Traffic */}
-      <div className="bg-white rounded-xl border border-gray-200 p-6">
-        <div className="flex items-center gap-2 mb-6">
-          <Clock className="w-5 h-5 text-blue-600" />
+      <div className="bg-white rounded-xl border border-gray-200 p-4 sm:p-6">
+        <div className="flex items-start sm:items-center gap-2 mb-4 sm:mb-6">
+          <Clock className="w-4 h-4 sm:w-5 sm:h-5 text-blue-600 flex-shrink-0 mt-0.5 sm:mt-0" />
           <div>
-            <h2 className="text-lg font-semibold text-gray-900">Traffic by Hour</h2>
-            <p className="text-sm text-gray-500">Average visitors throughout the day</p>
+            <h2 className="text-base sm:text-lg font-semibold text-gray-900">Traffic by Hour</h2>
+            <p className="text-xs sm:text-sm text-gray-500">Average visitors throughout the day</p>
           </div>
         </div>
-        <ResponsiveContainer width="100%" height={300}>
+        <ResponsiveContainer width="100%" height={250}>
           <BarChart data={hourlyData}>
             <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />
-            <XAxis dataKey="hour" stroke="#9CA3AF" fontSize={12} />
-            <YAxis stroke="#9CA3AF" fontSize={12} />
+            <XAxis dataKey="hour" stroke="#9CA3AF" fontSize={10} />
+            <YAxis stroke="#9CA3AF" fontSize={10} />
             <Tooltip 
-              contentStyle={{ backgroundColor: '#fff', border: '1px solid #e5e7eb', borderRadius: '8px' }}
+              contentStyle={{ backgroundColor: '#fff', border: '1px solid #e5e7eb', borderRadius: '8px', fontSize: '12px' }}
             />
             <Bar dataKey="visitors" fill="#3B82F6" radius={[8, 8, 0, 0]} />
           </BarChart>
@@ -80,50 +80,50 @@ export function TrafficAnalytics() {
       </div>
 
       {/* Weekly Traffic */}
-      <div className="bg-white rounded-xl border border-gray-200 p-6">
-        <div className="flex items-center gap-2 mb-6">
-          <Calendar className="w-5 h-5 text-green-600" />
+      <div className="bg-white rounded-xl border border-gray-200 p-4 sm:p-6">
+        <div className="flex items-start sm:items-center gap-2 mb-4 sm:mb-6">
+          <Calendar className="w-4 h-4 sm:w-5 sm:h-5 text-green-600 flex-shrink-0 mt-0.5 sm:mt-0" />
           <div>
-            <h2 className="text-lg font-semibold text-gray-900">Weekly Traffic Breakdown</h2>
-            <p className="text-sm text-gray-500">New vs returning visitors</p>
+            <h2 className="text-base sm:text-lg font-semibold text-gray-900">Weekly Traffic Breakdown</h2>
+            <p className="text-xs sm:text-sm text-gray-500">New vs returning visitors</p>
           </div>
         </div>
-        <ResponsiveContainer width="100%" height={320}>
+        <ResponsiveContainer width="100%" height={280}>
           <LineChart data={weeklyData}>
             <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />
-            <XAxis dataKey="day" stroke="#9CA3AF" fontSize={12} />
-            <YAxis stroke="#9CA3AF" fontSize={12} />
+            <XAxis dataKey="day" stroke="#9CA3AF" fontSize={10} />
+            <YAxis stroke="#9CA3AF" fontSize={10} />
             <Tooltip 
-              contentStyle={{ backgroundColor: '#fff', border: '1px solid #e5e7eb', borderRadius: '8px' }}
+              contentStyle={{ backgroundColor: '#fff', border: '1px solid #e5e7eb', borderRadius: '8px', fontSize: '12px' }}
             />
-            <Legend />
-            <Line type="monotone" dataKey="visitors" stroke="#3B82F6" strokeWidth={3} dot={{ r: 4 }} name="Total Visitors" />
-            <Line type="monotone" dataKey="newVisitors" stroke="#10B981" strokeWidth={3} dot={{ r: 4 }} name="New Visitors" />
-            <Line type="monotone" dataKey="returning" stroke="#F59E0B" strokeWidth={3} dot={{ r: 4 }} name="Returning" />
+            <Legend wrapperStyle={{ fontSize: '12px' }} />
+            <Line type="monotone" dataKey="visitors" stroke="#3B82F6" strokeWidth={2} dot={{ r: 3 }} name="Total Visitors" />
+            <Line type="monotone" dataKey="newVisitors" stroke="#10B981" strokeWidth={2} dot={{ r: 3 }} name="New Visitors" />
+            <Line type="monotone" dataKey="returning" stroke="#F59E0B" strokeWidth={2} dot={{ r: 3 }} name="Returning" />
           </LineChart>
         </ResponsiveContainer>
       </div>
 
       {/* Geographic and Browser Data */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6">
         {/* Countries */}
-        <div className="bg-white rounded-xl border border-gray-200 p-6">
-          <div className="flex items-center gap-2 mb-6">
-            <MapPin className="w-5 h-5 text-purple-600" />
+        <div className="bg-white rounded-xl border border-gray-200 p-4 sm:p-6">
+          <div className="flex items-start sm:items-center gap-2 mb-4 sm:mb-6">
+            <MapPin className="w-4 h-4 sm:w-5 sm:h-5 text-purple-600 flex-shrink-0 mt-0.5 sm:mt-0" />
             <div>
-              <h2 className="text-lg font-semibold text-gray-900">Top Countries</h2>
-              <p className="text-sm text-gray-500">Geographic distribution</p>
+              <h2 className="text-base sm:text-lg font-semibold text-gray-900">Top Countries</h2>
+              <p className="text-xs sm:text-sm text-gray-500">Geographic distribution</p>
             </div>
           </div>
-          <div className="space-y-4">
+          <div className="space-y-3.5 sm:space-y-4">
             {countries.map((country) => (
               <div key={country.name} className="space-y-2">
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-2">
-                    <span className="text-xl">{country.flag}</span>
-                    <span className="text-sm font-medium text-gray-700">{country.name}</span>
+                    <span className="text-lg sm:text-xl">{country.flag}</span>
+                    <span className="text-xs sm:text-sm font-medium text-gray-700">{country.name}</span>
                   </div>
-                  <span className="text-sm font-semibold text-gray-900">{country.visitors.toLocaleString()}</span>
+                  <span className="text-xs sm:text-sm font-semibold text-gray-900">{country.visitors.toLocaleString()}</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <div className="flex-1 h-2 bg-gray-100 rounded-full overflow-hidden">
@@ -132,7 +132,7 @@ export function TrafficAnalytics() {
                       style={{ width: `${country.percentage}%` }}
                     ></div>
                   </div>
-                  <span className="text-xs text-gray-500 w-12 text-right">{country.percentage}%</span>
+                  <span className="text-[10px] sm:text-xs text-gray-500 w-10 sm:w-12 text-right">{country.percentage}%</span>
                 </div>
               </div>
             ))}
@@ -140,31 +140,31 @@ export function TrafficAnalytics() {
         </div>
 
         {/* Browsers */}
-        <div className="bg-white rounded-xl border border-gray-200 p-6">
-          <div className="flex items-center gap-2 mb-6">
-            <Globe className="w-5 h-5 text-orange-600" />
+        <div className="bg-white rounded-xl border border-gray-200 p-4 sm:p-6">
+          <div className="flex items-start sm:items-center gap-2 mb-4 sm:mb-6">
+            <Globe className="w-4 h-4 sm:w-5 sm:h-5 text-orange-600 flex-shrink-0 mt-0.5 sm:mt-0" />
             <div>
-              <h2 className="text-lg font-semibold text-gray-900">Browser Usage</h2>
-              <p className="text-sm text-gray-500">Most popular browsers</p>
+              <h2 className="text-base sm:text-lg font-semibold text-gray-900">Browser Usage</h2>
+              <p className="text-xs sm:text-sm text-gray-500">Most popular browsers</p>
             </div>
           </div>
-          <div className="space-y-5">
+          <div className="space-y-4 sm:space-y-5">
             {browsers.map((browser) => (
-              <div key={browser.name} className="flex items-center gap-4">
+              <div key={browser.name} className="flex items-center gap-3 sm:gap-4">
                 <div className="flex-1">
                   <div className="flex items-center justify-between mb-2">
-                    <span className="text-sm font-medium text-gray-700">{browser.name}</span>
-                    <span className="text-sm text-gray-500">{browser.visitors.toLocaleString()} visitors</span>
+                    <span className="text-xs sm:text-sm font-medium text-gray-700">{browser.name}</span>
+                    <span className="text-xs sm:text-sm text-gray-500">{browser.visitors.toLocaleString()} visitors</span>
                   </div>
-                  <div className="h-3 bg-gray-100 rounded-full overflow-hidden">
+                  <div className="h-2.5 sm:h-3 bg-gray-100 rounded-full overflow-hidden">
                     <div 
                       className="h-full bg-gradient-to-r from-orange-500 to-orange-600 rounded-full transition-all"
                       style={{ width: `${browser.share}%` }}
                     ></div>
                   </div>
                 </div>
-                <div className="text-right">
-                  <span className="text-lg font-semibold text-gray-900">{browser.share}%</span>
+                <div className="text-right flex-shrink-0">
+                  <span className="text-base sm:text-lg font-semibold text-gray-900">{browser.share}%</span>
                 </div>
               </div>
             ))}

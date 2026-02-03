@@ -60,20 +60,20 @@ export function Dashboard() {
       </aside>
 
       {/* Mobile menu button */}
-      <div className="lg:hidden fixed top-0 left-0 right-0 z-40 bg-white border-b border-gray-200 px-4 py-3">
+      <div className="lg:hidden fixed top-0 left-0 right-0 z-40 bg-white border-b border-gray-200 px-4 py-4 shadow-sm">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-2">
             <div className="p-1.5 bg-blue-600 rounded-lg">
               <Globe className="w-5 h-5 text-white" />
             </div>
             <div>
-              <span className="text-lg font-bold text-gray-900">WebAnalytics</span>
-              <p className="text-xs text-gray-500">www.yoursite.com</p>
+              <span className="text-base font-bold text-gray-900">WebAnalytics</span>
+              <p className="text-[10px] text-gray-500 leading-tight">www.yoursite.com</p>
             </div>
           </div>
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="p-2 rounded-lg text-gray-600 hover:bg-gray-100"
+            className="p-2.5 rounded-lg text-gray-600 hover:bg-gray-100 active:bg-gray-200"
           >
             {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </button>
@@ -82,8 +82,8 @@ export function Dashboard() {
 
       {/* Mobile menu */}
       {mobileMenuOpen && (
-        <div className="lg:hidden fixed inset-0 z-30 bg-white pt-16">
-          <nav className="px-4 py-4 space-y-1">
+        <div className="lg:hidden fixed inset-0 z-30 bg-white pt-20">
+          <nav className="px-4 py-4 space-y-2">
             {navigation.map((item) => {
               const Icon = item.icon;
               return (
@@ -91,14 +91,14 @@ export function Dashboard() {
                   key={item.name}
                   to={item.href}
                   onClick={() => setMobileMenuOpen(false)}
-                  className={`flex items-center px-3 py-3 rounded-lg transition-colors ${
+                  className={`flex items-center px-4 py-4 rounded-xl transition-colors ${
                     isActive(item.href)
                       ? 'bg-blue-50 text-blue-700'
-                      : 'text-gray-700 hover:bg-gray-50'
+                      : 'text-gray-700 hover:bg-gray-50 active:bg-gray-100'
                   }`}
                 >
-                  <Icon className="w-5 h-5 mr-3" />
-                  {item.name}
+                  <Icon className="w-6 h-6 mr-4" />
+                  <span className="text-base font-medium">{item.name}</span>
                 </Link>
               );
             })}
@@ -108,7 +108,7 @@ export function Dashboard() {
 
       {/* Main content */}
       <div className="lg:pl-64">
-        <main className="pt-16 lg:pt-0">
+        <main className="pt-20 lg:pt-0">
           <Outlet />
         </main>
       </div>

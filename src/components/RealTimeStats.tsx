@@ -76,29 +76,29 @@ export function RealTimeStats() {
   }, []);
 
   return (
-    <div className="p-4 lg:p-8 space-y-6">
+    <div className="p-4 sm:p-6 lg:p-8 space-y-4 sm:space-y-6 pb-8">
       {/* Header */}
-      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 sm:gap-4">
         <div>
-          <div className="flex items-center gap-3">
-            <h1 className="text-2xl lg:text-3xl font-semibold text-gray-900">Real-time Website Activity</h1>
-            <div className="flex items-center gap-2 px-3 py-1 bg-green-100 rounded-full">
-              <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
-              <span className="text-sm font-medium text-green-700">Live</span>
+          <div className="flex items-center gap-2 sm:gap-3">
+            <h1 className="text-xl sm:text-2xl lg:text-3xl font-semibold text-gray-900">Real-time Website Activity</h1>
+            <div className="flex items-center gap-1.5 sm:gap-2 px-2 sm:px-3 py-1 bg-green-100 rounded-full">
+              <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-green-500 rounded-full animate-pulse"></div>
+              <span className="text-xs sm:text-sm font-medium text-green-700">Live</span>
             </div>
           </div>
-          <p className="mt-1 text-sm text-gray-500">Monitor your website activity as it happens</p>
+          <p className="mt-1 text-xs sm:text-sm text-gray-500">Monitor your website activity as it happens</p>
         </div>
       </div>
 
       {/* Real-time Stats */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-6">
-        <div className="bg-white rounded-xl border border-gray-200 p-6 hover:shadow-lg transition-shadow">
-          <div className="flex items-center justify-between mb-4">
-            <div className="p-3 rounded-lg bg-green-50">
-              <Activity className="w-6 h-6 text-green-600" />
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 lg:gap-6">
+        <div className="bg-white rounded-xl border border-gray-200 p-4 sm:p-6 hover:shadow-lg transition-shadow">
+          <div className="flex items-center justify-between mb-3 sm:mb-4">
+            <div className="p-2 sm:p-3 rounded-lg bg-green-50">
+              <Activity className="w-5 h-5 sm:w-6 sm:h-6 text-green-600" />
             </div>
-            <div className="w-16 h-8">
+            <div className="w-14 sm:w-16 h-7 sm:h-8">
               <ResponsiveContainer width="100%" height="100%">
                 <LineChart data={chartData.slice(-10)}>
                   <Line type="monotone" dataKey="value" stroke="#10B981" strokeWidth={2} dot={false} />
@@ -106,47 +106,47 @@ export function RealTimeStats() {
               </ResponsiveContainer>
             </div>
           </div>
-          <p className="text-sm text-gray-600">Active Users</p>
-          <p className="mt-1 text-3xl font-bold text-gray-900">{activeUsers}</p>
-          <p className="mt-1 text-xs text-gray-500">Right now</p>
+          <p className="text-xs sm:text-sm text-gray-600">Active Users</p>
+          <p className="mt-1 text-2xl sm:text-3xl font-bold text-gray-900">{activeUsers}</p>
+          <p className="mt-1 text-[10px] sm:text-xs text-gray-500">Right now</p>
         </div>
 
-        <div className="bg-white rounded-xl border border-gray-200 p-6 hover:shadow-lg transition-shadow">
-          <div className="flex items-center justify-between mb-4">
-            <div className="p-3 rounded-lg bg-blue-50">
-              <Eye className="w-6 h-6 text-blue-600" />
+        <div className="bg-white rounded-xl border border-gray-200 p-4 sm:p-6 hover:shadow-lg transition-shadow">
+          <div className="flex items-center justify-between mb-3 sm:mb-4">
+            <div className="p-2 sm:p-3 rounded-lg bg-blue-50">
+              <Eye className="w-5 h-5 sm:w-6 sm:h-6 text-blue-600" />
             </div>
           </div>
-          <p className="text-sm text-gray-600">Page Views Today</p>
-          <p className="mt-1 text-3xl font-bold text-gray-900">{pageViews.toLocaleString()}</p>
-          <p className="mt-1 text-xs text-green-600 font-medium">+12.5% vs yesterday</p>
+          <p className="text-xs sm:text-sm text-gray-600">Page Views Today</p>
+          <p className="mt-1 text-2xl sm:text-3xl font-bold text-gray-900">{pageViews.toLocaleString()}</p>
+          <p className="mt-1 text-[10px] sm:text-xs text-green-600 font-medium">+12.5% vs yesterday</p>
         </div>
 
-        <div className="bg-white rounded-xl border border-gray-200 p-6 hover:shadow-lg transition-shadow">
-          <div className="flex items-center justify-between mb-4">
-            <div className="p-3 rounded-lg bg-purple-50">
-              <Users className="w-6 h-6 text-purple-600" />
+        <div className="bg-white rounded-xl border border-gray-200 p-4 sm:p-6 hover:shadow-lg transition-shadow sm:col-span-2 lg:col-span-1">
+          <div className="flex items-center justify-between mb-3 sm:mb-4">
+            <div className="p-2 sm:p-3 rounded-lg bg-purple-50">
+              <Users className="w-5 h-5 sm:w-6 sm:h-6 text-purple-600" />
             </div>
           </div>
-          <p className="text-sm text-gray-600">Avg. Session Duration</p>
-          <p className="mt-1 text-3xl font-bold text-gray-900">3m 47s</p>
-          <p className="mt-1 text-xs text-green-600 font-medium">+8.2% vs yesterday</p>
+          <p className="text-xs sm:text-sm text-gray-600">Avg. Session Duration</p>
+          <p className="mt-1 text-2xl sm:text-3xl font-bold text-gray-900">3m 47s</p>
+          <p className="mt-1 text-[10px] sm:text-xs text-green-600 font-medium">+8.2% vs yesterday</p>
         </div>
       </div>
 
       {/* Activity Chart */}
-      <div className="bg-white rounded-xl border border-gray-200 p-6">
-        <div className="flex items-center justify-between mb-6">
+      <div className="bg-white rounded-xl border border-gray-200 p-4 sm:p-6">
+        <div className="flex items-center justify-between mb-4 sm:mb-6">
           <div>
-            <h2 className="text-lg font-semibold text-gray-900">Activity in Last Minute</h2>
-            <p className="text-sm text-gray-500 mt-1">Live visitor count</p>
+            <h2 className="text-base sm:text-lg font-semibold text-gray-900">Activity in Last Minute</h2>
+            <p className="text-xs sm:text-sm text-gray-500 mt-1">Live visitor count</p>
           </div>
           <div className="text-right">
-            <p className="text-2xl font-bold text-green-600">{activeUsers}</p>
-            <p className="text-xs text-gray-500">Active now</p>
+            <p className="text-xl sm:text-2xl font-bold text-green-600">{activeUsers}</p>
+            <p className="text-[10px] sm:text-xs text-gray-500">Active now</p>
           </div>
         </div>
-        <ResponsiveContainer width="100%" height={200}>
+        <ResponsiveContainer width="100%" height={180}>
           <LineChart data={chartData}>
             <Line 
               type="monotone" 
@@ -161,28 +161,28 @@ export function RealTimeStats() {
       </div>
 
       {/* Active Users and Current Pages */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6">
         {/* Active Users List */}
-        <div className="bg-white rounded-xl border border-gray-200 p-6">
-          <div className="flex items-center gap-2 mb-6">
-            <MapPin className="w-5 h-5 text-blue-600" />
+        <div className="bg-white rounded-xl border border-gray-200 p-4 sm:p-6">
+          <div className="flex items-start sm:items-center gap-2 mb-4 sm:mb-6">
+            <MapPin className="w-4 h-4 sm:w-5 sm:h-5 text-blue-600 flex-shrink-0 mt-0.5 sm:mt-0" />
             <div>
-              <h2 className="text-lg font-semibold text-gray-900">Active Users</h2>
-              <p className="text-sm text-gray-500">Current visitor activity</p>
+              <h2 className="text-base sm:text-lg font-semibold text-gray-900">Active Users</h2>
+              <p className="text-xs sm:text-sm text-gray-500">Current visitor activity</p>
             </div>
           </div>
-          <div className="space-y-3 max-h-96 overflow-y-auto">
+          <div className="space-y-2 sm:space-y-3 max-h-80 sm:max-h-96 overflow-y-auto">
             {users.map((user) => (
-              <div key={user.id} className="flex items-center justify-between p-3 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors">
-                <div className="flex items-center gap-3 flex-1 min-w-0">
-                  <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse flex-shrink-0"></div>
+              <div key={user.id} className="flex items-center justify-between p-2.5 sm:p-3 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors">
+                <div className="flex items-center gap-2 sm:gap-3 flex-1 min-w-0">
+                  <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-green-500 rounded-full animate-pulse flex-shrink-0"></div>
                   <div className="min-w-0 flex-1">
-                    <p className="text-sm font-medium text-gray-900 truncate">{user.page}</p>
-                    <p className="text-xs text-gray-500">{user.location} · {user.device}</p>
+                    <p className="text-xs sm:text-sm font-medium text-gray-900 truncate">{user.page}</p>
+                    <p className="text-[10px] sm:text-xs text-gray-500">{user.location} · {user.device}</p>
                   </div>
                 </div>
-                <div className="text-right flex-shrink-0 ml-4">
-                  <p className="text-xs text-gray-500">{user.timeOnPage}s</p>
+                <div className="text-right flex-shrink-0 ml-2 sm:ml-4">
+                  <p className="text-[10px] sm:text-xs text-gray-500">{user.timeOnPage}s</p>
                 </div>
               </div>
             ))}
@@ -190,31 +190,31 @@ export function RealTimeStats() {
         </div>
 
         {/* Current Pages */}
-        <div className="bg-white rounded-xl border border-gray-200 p-6">
-          <div className="flex items-center gap-2 mb-6">
-            <Monitor className="w-5 h-5 text-purple-600" />
+        <div className="bg-white rounded-xl border border-gray-200 p-4 sm:p-6">
+          <div className="flex items-start sm:items-center gap-2 mb-4 sm:mb-6">
+            <Monitor className="w-4 h-4 sm:w-5 sm:h-5 text-purple-600 flex-shrink-0 mt-0.5 sm:mt-0" />
             <div>
-              <h2 className="text-lg font-semibold text-gray-900">Top Active Pages</h2>
-              <p className="text-sm text-gray-500">Most viewed pages right now</p>
+              <h2 className="text-base sm:text-lg font-semibold text-gray-900">Top Active Pages</h2>
+              <p className="text-xs sm:text-sm text-gray-500">Most viewed pages right now</p>
             </div>
           </div>
-          <div className="space-y-4">
+          <div className="space-y-3.5 sm:space-y-4">
             {currentPages.map((page, index) => (
               <div key={page.page} className="space-y-2">
                 <div className="flex items-center justify-between">
-                  <div className="flex items-center gap-3">
-                    <div className="w-8 h-8 rounded-lg bg-purple-50 flex items-center justify-center flex-shrink-0">
-                      <span className="text-sm font-medium text-purple-600">{index + 1}</span>
+                  <div className="flex items-center gap-2 sm:gap-3">
+                    <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-lg bg-purple-50 flex items-center justify-center flex-shrink-0">
+                      <span className="text-xs sm:text-sm font-medium text-purple-600">{index + 1}</span>
                     </div>
-                    <span className="text-sm font-medium text-gray-900">{page.page}</span>
+                    <span className="text-xs sm:text-sm font-medium text-gray-900">{page.page}</span>
                   </div>
-                  <div className="flex items-center gap-2">
-                    <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
-                    <span className="text-sm font-semibold text-gray-900">{page.users}</span>
+                  <div className="flex items-center gap-1.5 sm:gap-2">
+                    <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-green-500 rounded-full animate-pulse"></div>
+                    <span className="text-xs sm:text-sm font-semibold text-gray-900">{page.users}</span>
                   </div>
                 </div>
-                <div className="ml-11">
-                  <div className="h-2 bg-gray-100 rounded-full overflow-hidden">
+                <div className="ml-9 sm:ml-11">
+                  <div className="h-1.5 sm:h-2 bg-gray-100 rounded-full overflow-hidden">
                     <div 
                       className="h-full bg-purple-600 rounded-full transition-all"
                       style={{ width: `${(page.users / currentPages[0].users) * 100}%` }}
